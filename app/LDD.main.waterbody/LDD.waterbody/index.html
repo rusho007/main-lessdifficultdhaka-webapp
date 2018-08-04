@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        #map {
+            width: 2603px;
+            height: 1829px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/DccFinal_1.js"></script>
+        <script src="data/NewWaterBTM_2.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[23.646959256625564,90.23548851905379],[23.913009485949893,90.64939016236768]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        L.control.locate().addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var overlay_Wikimedialabelledlayer_0 = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_Wikimedialabelledlayer_0.addTo(map);
+        map.addLayer(overlay_Wikimedialabelledlayer_0);
+        function pop_DccFinal_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">Area: ' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + ' sq m</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Ward no: ' + (feature.properties['DWARD_ID'] !== null ? Autolinker.link(String(feature.properties['DWARD_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Ward name:' + (feature.properties['Ward_Name'] !== null ? Autolinker.link(String(feature.properties['Ward_Name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DccFinal_1_0() {
+            return {
+                pane: 'pane_DccFinal_1',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_DccFinal_1');
+        map.getPane('pane_DccFinal_1').style.zIndex = 401;
+        map.getPane('pane_DccFinal_1').style['mix-blend-mode'] = 'normal';
+        var layer_DccFinal_1 = new L.geoJson(json_DccFinal_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_DccFinal_1',
+            onEachFeature: pop_DccFinal_1,
+            style: style_DccFinal_1_0,
+        });
+        bounds_group.addLayer(layer_DccFinal_1);
+        map.addLayer(layer_DccFinal_1);
+        function pop_NewWaterBTM_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">Area: ' + (feature.properties['Area'] !== null ? Autolinker.link(String(feature.properties['Area'])) : '') + ' sq m</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NewWaterBTM_2_0() {
+            return {
+                pane: 'pane_NewWaterBTM_2',
+                opacity: 1,
+                color: 'rgba(38,89,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(55,126,184,1.0)',
+            }
+        }
+        map.createPane('pane_NewWaterBTM_2');
+        map.getPane('pane_NewWaterBTM_2').style.zIndex = 402;
+        map.getPane('pane_NewWaterBTM_2').style['mix-blend-mode'] = 'normal';
+        var layer_NewWaterBTM_2 = new L.geoJson(json_NewWaterBTM_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_NewWaterBTM_2',
+            onEachFeature: pop_NewWaterBTM_2,
+            style: style_NewWaterBTM_2_0,
+        });
+        bounds_group.addLayer(layer_NewWaterBTM_2);
+        map.addLayer(layer_NewWaterBTM_2);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        setBounds();
+        var i = 0;
+        layer_DccFinal_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['DWARD_ID'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DWARD_ID']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DccFinal_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_DccFinal_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_DccFinal_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_DccFinal_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_DccFinal_1]);
+        });
+        </script>
+    </body>
+</html>

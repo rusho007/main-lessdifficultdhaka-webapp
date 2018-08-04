@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+	Phantom by HTML5 UP	html5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Less Difficult Dhaka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <h1 style="text-align: center;"> <a href="http://lessdifficultdhaka.com"><!-- Logo -->
+              LESS DIFFICULT DHAKA
+              <!-- Nav --></a> </h1>
+          <nav>
+            <ul style="text-align: cyenter;">
+              <li><a href="#menu">Menu</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- Menu -->
+      <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="http://lessdifficultdhaka.com/app">Project Home</a></li>
+          <li><a href="http://lessdifficultdhaka.com/documentation">Documentation</a></li>
+        </ul>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/23d8190d41/dhaka/"
+          data-label_1="DHAKA"
+          data-label_2="RAIN POSSIBILITY"
+          data-icons="Climacons Animated"
+          data-days="3"
+          data-theme="gray">DHAKA
+          RAIN POSSIBILITY</a>
+        <script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script> </nav>
+      <!-- Main --><br>
+      <div id="main">
+        <div class="inner">
+          <header>
+            <div style="text-align: center;">
+              <h3>Rain Water Harvesting can make Dhaka less difficult</h3>
+              <p>the app has tools which can calculate your benefits, show you
+                problem intensity and make you aware to save rain water </p>
+            </div>
+            <div style="text-align: center;"><iframe src="https://www.youtube.com/embed/u0MMfF3P9Dk"
+                width="500"
+                height="360">
+              </iframe></div>
+          </header>
+        </div>
+        <p style="text-align: center; margin-top: -34px;"><br>
+        </p>
+        <p style="text-align: center; margin-top: -34px;">WATCH VIDEO TO USE
+          THIS APP PROPERLY<br>
+        </p>
+        <section class="tiles">
+          <article class="style1"> <span class="image"> <img src="images/pic01.jpg"
+                alt="">
+            </span> <a href="http://lessdifficultdhaka.com/documentation">
+              <h2>1. How TO HARVEST</h2>
+              <div class="content">
+                <p>Know how to harvest rain water to save Dhaka city</p>
+              </div>
+            </a> </article>
+          <article class="style2"> <span class="image"> <img src="images/pic02.jpg"
+                alt="">
+            </span> <a href="LDD.main.calc/index.html">
+              <h2>2. Rain water harvesting</h2>
+              <h2>SAVINGS</h2>
+              <h2>calculator</h2>
+              <div class="content">
+                <p>Calculate quickly how much energy you can save by harvesting
+                  rain water.</p>
+              </div>
+            </a> </article>
+          <article class="style3"> <span class="image"> <img src="images/pic03.jpg"
+                alt="">
+            </span> <a href="LDD.main.rwhdemo/index.html">
+              <h2>3. YOUR BUILDING ANALYZER</h2>
+              <h2>FOR HARVESTING </h2>
+              <h2>(DEMO)</h2>
+              <div class="content">
+                <p>Check the features with a small data set. Then try the heavy
+                  version to get more.</p>
+              </div>
+            </a> </article>
+          <article class="style4"> <span class="image"> <img src="images/pic04.jpg"
+                alt="">
+            </span> <a href="LDD.main.rwh/index.html">
+              <h2> </h2>
+              <h2>4. YOUR BUILDING ANALYZER</h2>
+              <h2>FOR HARVESTING <br>
+              </h2>
+              <h2>(FULL)</h2>
+              <div class="content">
+                <p>This GIS app incorporates more than one million data to
+                  predict rainwater harvesting benefits of your building in
+                  Dhaka.</p>
+                <p> OPEN IN INTERNET EXPLORER</p>
+              </div>
+            </a> </article>
+          <article class="style5"> <span class="image"> <img src="images/pic05.jpg"
+                alt="">
+            </span> <a href="LDD.main.mosquito/index.html">
+              <h2>5. Dhaka Mosquito map</h2>
+              <div class="content">
+                <p>See the mosquito prone area of Dhaka with GIS data overlay.</p>
+              </div>
+            </a> </article>
+          <article class="style6"> <span class="image"> <img src="images/pic06.jpg"
+                alt="">
+            </span> <a href="LDD.main.logging/index.html">
+              <h2>6. Dhaka water logged area map</h2>
+              <div class="content">
+                <p>Peak monsoon water logging history on a map.</p>
+              </div>
+            </a> </article>
+          <article class="style2"> <span class="image"> <img src="images/pic07.jpg"
+                alt="">
+            </span> <a href="LDD.main.ground1/index.html">
+              <h2>7. Dhaka Ground Water 2016</h2>
+              <div class="content">
+                <p>Ground water level contour 2016</p>
+              </div>
+            </a> </article>
+          <article class="style3"> <span class="image"> <img src="images/pic08.jpg"
+                alt="">
+            </span> <a href="LDD.main.ground/index.html">
+              <h2>8. Dhaka ground water 1995</h2>
+              <div class="content">
+                <p>Ground water level contour back in 1995</p>
+              </div>
+            </a> </article>
+          <article class="style1"> <span class="image"> <img src="images/pic09.jpg"
+                alt="">
+            </span> <a href="LDD.main.globe/index.html">
+              <h2>9. 3D tool to mark water logging</h2>
+              <div class="content">
+                <p>Using NASA WorldWind Technology</p>
+              </div>
+            </a> </article>
+          <article class="style5"> <span class="image"> <img src="images/pic10.jpg"
+                alt="">
+            </span> <a href="LDD.main.waterbody/index.html">
+              <h2>10. Dhaka water body info</h2>
+              <div class="content">
+                <p>Know about the surface water condition of DHaka</p>
+              </div>
+            </a> </article>
+        </section>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div style="text-align: center;">
+      <footer id="footer">CHECK THE FACTS<br>
+        <br>
+        <ul>
+        </ul>
+        &nbsp;&nbsp;&nbsp; Harvesting rain water on 25% rooftop area of 25%
+        buildings of Dhaka can save more water than the total yearly demand<br>
+        &nbsp;&nbsp;&nbsp; The described setup results in 83% less&nbsp; road
+        water logging during monsoon<br>
+        &nbsp;&nbsp;&nbsp; Mosquito problems are correlated with water logging
+        in Dhaka<br>
+        &nbsp;&nbsp;&nbsp; Dhaka is losing its ground water too fast, 300%
+        increased rate than 20 years ago<br>
+        &nbsp;&nbsp;&nbsp; Underground hollowness may result in devastating
+        catastrophe within 2025<br>
+        <br>
+        &nbsp;a project for <a href="http://worldchallenge.live/projects.html">World
+          Challange 2018</a><br>
+        by <a href="http://lessdifficultdhaka.com/index.html#trial">Team
+          Bangladesh</a></footer>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

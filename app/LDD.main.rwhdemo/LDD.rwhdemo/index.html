@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <style>
+        #map {
+            width: 2629px;
+            height: 1829px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="data/SampleTool_1.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[23.804168695404606,90.34530399619788],[23.81459683674352,90.3616932001327]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var overlay_Wikimedialabelledlayer_0 = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_Wikimedialabelledlayer_0.addTo(map);
+        map.addLayer(overlay_Wikimedialabelledlayer_0);
+        function pop_SampleTool_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">Structure use: ' + (feature.properties['STR_USE1T'] !== null ? Autolinker.link(String(feature.properties['STR_USE1T'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Road: ' + (feature.properties['ROAD_NAME'] !== null ? Autolinker.link(String(feature.properties['ROAD_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Locality: ' + (feature.properties['LOCALITY'] !== null ? Autolinker.link(String(feature.properties['LOCALITY'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Height'] !== null ? Autolinker.link(String(feature.properties['Height'])) : '') + ' Floors</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Structure area: ' + (feature.properties['Area'] !== null ? Autolinker.link(String(feature.properties['Area'])) : '') + ' sq m</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Water harvested per year ' + (feature.properties['OnefourthR'] !== null ? Autolinker.link(String(feature.properties['OnefourthR'])) : '') + ' Litre</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">Water demand here is ' + (feature.properties['Usage'] !== null ? Autolinker.link(String(feature.properties['Usage'])) : '') + ' Litre per year.</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SampleTool_1_0() {
+            return {
+                pane: 'pane_SampleTool_1',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_SampleTool_1');
+        map.getPane('pane_SampleTool_1').style.zIndex = 401;
+        map.getPane('pane_SampleTool_1').style['mix-blend-mode'] = 'normal';
+        var layer_SampleTool_1 = new L.geoJson(json_SampleTool_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_SampleTool_1',
+            onEachFeature: pop_SampleTool_1,
+            style: style_SampleTool_1_0,
+        });
+        bounds_group.addLayer(layer_SampleTool_1);
+        map.addLayer(layer_SampleTool_1);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        setBounds();
+        </script>
+    </body>
+</html>
